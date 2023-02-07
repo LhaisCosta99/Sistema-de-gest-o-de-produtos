@@ -7,7 +7,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node ./src/app.js",
-    "dev": "nodemon ./src/app.js"
+    "dev": "nodemon ./src/app.js",
+    "swagger-autogen": "node swagger.js"
   },
   "repository": {
     "url": "git+https://github.com/LhaisCosta99/Sistema-de-gestao-de-produtos.git"
@@ -23,7 +24,9 @@
     "cors": "^2.8.5",
     "dotenv": "^16.0.3",
     "express": "^4.18.2",
-    "mysql2": "^3.1.0"
+    "mysql2": "^3.1.0",
+    "swagger-autogen": "^2.23.0",
+    "swagger-ui-express": "^4.6.0"
   },
   "devDependencies": {
     "nodemon": "^2.0.20"
