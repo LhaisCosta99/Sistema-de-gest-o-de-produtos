@@ -5,6 +5,10 @@ import { conexao } from "./infraestrutura/conexao.js";
 import Tabelas from "./infraestrutura/Tabelas.js";
 import swaggerUi from 'swagger-ui-express';
 import { createRequire } from "module";
+import produtosRouter from "./routers/ProdutosRouters.js";
+import categoriasRouter from "./routers/CategoriasRouter.js";
+
+
 const require = createRequire(import.meta.url);
 const swaggerFile = require('./swagger/swagger_output.json');
 
@@ -16,7 +20,9 @@ const port = process.env.PORT
 
 app.use(cors())
 app.use(express.json())
-app.use('/docs', swaggerUi.serve, swaggerUi.setup(swaggerFile));
+app.use('/doc', swaggerUi.serve, swaggerUi.setup(swaggerFile));
+app.use("/produtos", produtosRouter)
+app.use("/categorias", categoriasRouter)
 
 conexao.connect((erro) => {
     if (erro) {

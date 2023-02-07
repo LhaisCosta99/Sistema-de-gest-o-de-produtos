@@ -6,9 +6,9 @@
   "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node ./src/app.js",
-    "dev": "nodemon ./src/app.js",
-    "swagger-autogen": "node swagger.js"
+    "swagger-autogen": "node swagger.js",
+    "dev": "npm run swagger-autogen && nodemon ./src/app.js",
+    "start": "npm run swagger-autogen && node ./src/app.js"
   },
   "repository": {
     "url": "git+https://github.com/LhaisCosta99/Sistema-de-gestao-de-produtos.git"
