@@ -77,7 +77,7 @@ jest: "^29.4.2",
 }
 ```
 
-### :small_blue_diamond: documentção interativa <br>
+### :small_blue_diamond: Documentção interativa <br>
 
 Para acessar ao Swegger utlizar a segunte rota: <br>
 ```
@@ -143,10 +143,10 @@ Rota para atualização de um Produto.<br>
 /produtos/id
 ```
 
-:dart: Delete-categorias/id <br>
+:dart: Delete-produtos/id <br>
 Rota para exclusão de registro dos produtos por Id.<br>
 ```
-/categorias/:id
+/produtos/:id
 ```
 
 
