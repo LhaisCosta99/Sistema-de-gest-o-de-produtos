@@ -7,6 +7,7 @@ import { conexao } from "./infraestrutura/conexao.js"
 import Tabelas from "./infraestrutura/Tabelas.js"
 import produtosRouter from "./routers/ProdutosRouters.js"
 import categoriasRouter from "./routers/CategoriasRouter.js"
+import { autenticador } from "./middleware/autenticador.js"
 
 const require = createRequire(import.meta.url)
 const swaggerFile = require("./swagger/swagger_output.json")
@@ -18,6 +19,7 @@ const port = process.env.PORT
 
 app.use(cors())
 app.use(express.json())
+app.use(autenticador)
 app.use("/doc", swaggerUi.serve, swaggerUi.setup(swaggerFile))
 app.use("/produtos", produtosRouter)
 app.use("/categorias", categoriasRouter)

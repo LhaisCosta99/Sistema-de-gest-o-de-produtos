@@ -22,25 +22,43 @@
     "/produtos/": {
       "get": {
         "description": "",
-        "parameters": [],
+        "parameters": [
+          {
+            "name": "autenticador",
+            "in": "header",
+            "type": "string"
+          }
+        ],
         "responses": {
           "200": {
             "description": "OK"
           },
           "400": {
             "description": "Bad Request"
+          },
+          "403": {
+            "description": "Forbidden"
           }
         }
       },
       "post": {
         "description": "",
-        "parameters": [],
+        "parameters": [
+          {
+            "name": "autenticador",
+            "in": "header",
+            "type": "string"
+          }
+        ],
         "responses": {
           "200": {
             "description": "OK"
           },
           "400": {
             "description": "Bad Request"
+          },
+          "403": {
+            "description": "Forbidden"
           }
         }
       }
@@ -54,11 +72,19 @@
             "in": "path",
             "required": true,
             "type": "string"
+          },
+          {
+            "name": "autenticador",
+            "in": "header",
+            "type": "string"
           }
         ],
         "responses": {
           "200": {
             "description": "OK"
+          },
+          "403": {
+            "description": "Forbidden"
           }
         }
       },
@@ -70,11 +96,19 @@
             "in": "path",
             "required": true,
             "type": "string"
+          },
+          {
+            "name": "autenticador",
+            "in": "header",
+            "type": "string"
           }
         ],
         "responses": {
           "200": {
             "description": "OK"
+          },
+          "403": {
+            "description": "Forbidden"
           }
         }
       },
@@ -86,11 +120,19 @@
             "in": "path",
             "required": true,
             "type": "string"
+          },
+          {
+            "name": "autenticador",
+            "in": "header",
+            "type": "string"
           }
         ],
         "responses": {
           "200": {
             "description": "OK"
+          },
+          "403": {
+            "description": "Forbidden"
           }
         }
       }
@@ -98,25 +140,43 @@
     "/categorias/": {
       "get": {
         "description": "Rota para categorias",
-        "parameters": [],
+        "parameters": [
+          {
+            "name": "autenticador",
+            "in": "header",
+            "type": "string"
+          }
+        ],
         "responses": {
           "200": {
             "description": "OK"
           },
           "400": {
             "description": "Bad Request"
+          },
+          "403": {
+            "description": "Forbidden"
           }
         }
       },
       "post": {
         "description": "",
-        "parameters": [],
+        "parameters": [
+          {
+            "name": "autenticador",
+            "in": "header",
+            "type": "string"
+          }
+        ],
         "responses": {
           "200": {
             "description": "OK"
           },
           "400": {
             "description": "Bad Request"
+          },
+          "403": {
+            "description": "Forbidden"
           }
         }
       }
@@ -130,11 +190,19 @@
             "in": "path",
             "required": true,
             "type": "string"
+          },
+          {
+            "name": "autenticador",
+            "in": "header",
+            "type": "string"
           }
         ],
         "responses": {
           "200": {
             "description": "OK"
+          },
+          "403": {
+            "description": "Forbidden"
           }
         }
       },
@@ -146,11 +214,19 @@
             "in": "path",
             "required": true,
             "type": "string"
+          },
+          {
+            "name": "autenticador",
+            "in": "header",
+            "type": "string"
           }
         ],
         "responses": {
           "200": {
             "description": "OK"
+          },
+          "403": {
+            "description": "Forbidden"
           }
         }
       },
@@ -162,11 +238,19 @@
             "in": "path",
             "required": true,
             "type": "string"
+          },
+          {
+            "name": "autenticador",
+            "in": "header",
+            "type": "string"
           }
         ],
         "responses": {
           "200": {
             "description": "OK"
+          },
+          "403": {
+            "description": "Forbidden"
           }
         }
       }

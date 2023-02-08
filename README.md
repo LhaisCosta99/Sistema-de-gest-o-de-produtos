@@ -20,6 +20,15 @@ cd Sistema-de-gestao-de-produtos
 ```
 npm install
 ```
+
+Banco de dados:
+
+Tenha instalado para uso <a href="https://dev.mysql.com/downloads/installer/">o banco de dados mysql-Server e o gerenciador Mysql-workbench </a>para execução correta da aplicação.
+No caminho "./src/infraestrutura" existe um arquivo database.sql com o script de criação do banco, execute o mesmo no workbench,
+após isso renomeie o arquivo ".env.exemple" para apenas ".env" e substitua os valores exemplo das variáveis pelas suas credenciais.
+
+OBS.: ESSE PASSO DEVE SER FEITO ANTES DE SUBIR A APLICAÇÃO!
+
 :small_blue_diamond: Para rodar a aplicação:
 ```
 npm start
@@ -57,8 +66,13 @@ swagger-ui-express: "^4.6.0"
 :small_blue_diamond: MySQL    
 
 ## :traffic_light: Rotas da aplicação :traffic_light:
-:small_blue_diamond: Os testes da API foram feitos via Postman. <br>
-
+:small_blue_diamond: Os testes da API foram feitos via Postman. Para qualquer requisição é necessário privilégios de administrador, para tal o cabeçalho deve está configurado como abaixo: 
+<br>
+```json
+{
+    "autenticador": "admin"
+}
+```
 # :small_blue_diamond: categotias <br>
 
  :dart: Post-categorias <br>
