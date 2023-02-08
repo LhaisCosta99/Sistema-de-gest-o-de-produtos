@@ -4,6 +4,7 @@ import { validacoesDeEntradas, validacoesDeValores } from "../services/validacoe
 
 class Produtos {
 	async get(req, res) {
+		// #swagger.description = 'Rota de busca para todos os registros de produtos'
 		try {
 			const response = await ProdutosDAO.listar()
 			res.status(200).json(response)
@@ -13,6 +14,7 @@ class Produtos {
 	}
 
 	async getId(req, res) {
+		// #swagger.description = 'Rota de busca para registro de produtos especificos por meio de Id.'
 		const id = req.params.id
 
 		try {
@@ -37,6 +39,7 @@ class Produtos {
 	}
 
 	async post(req, res) {
+		// #swagger.description = 'Rota para inclusão de um novo produto.'
 		const body = req.body
 
 		try {
@@ -55,6 +58,7 @@ class Produtos {
 	}
 
 	async patch(req, res) {
+		// #swagger.description = 'Rota para atualização de registro em produtos por Id.'
 		const id = req.params.id
 		const body = req.body
 		try {
@@ -66,7 +70,7 @@ class Produtos {
 
 			const response = await ProdutosDAO.atualizar(body, id)
 
-			if(response.affectedRows === 0){
+			if (response.affectedRows === 0) {
 				throw new Error("Id inexistente ou nenhuma alteração encontrada na entrada.")
 			}
 			res.status(200).json(response)
@@ -81,6 +85,7 @@ class Produtos {
 	}
 
 	async delete(req, res) {
+		// #swagger.description = 'Rota para exclusão de registro dos produtos por Id.'
 		const id = req.params.id
 
 		try {

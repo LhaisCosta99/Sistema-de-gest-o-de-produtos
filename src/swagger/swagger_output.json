@@ -21,7 +21,7 @@
   "paths": {
     "/produtos/": {
       "get": {
-        "description": "",
+        "description": "Rota de busca para todos os registros de produtos",
         "parameters": [
           {
             "name": "autenticador",
@@ -42,7 +42,7 @@
         }
       },
       "post": {
-        "description": "",
+        "description": "Rota para inclusão de um novo produto.",
         "parameters": [
           {
             "name": "autenticador",
@@ -65,7 +65,7 @@
     },
     "/produtos/{id}": {
       "get": {
-        "description": "",
+        "description": "Rota de busca para registro de produtos especificos por meio de Id.",
         "parameters": [
           {
             "name": "id",
@@ -89,7 +89,7 @@
         }
       },
       "patch": {
-        "description": "",
+        "description": "Rota para atualização de registro em produtos por Id.",
         "parameters": [
           {
             "name": "id",
@@ -113,7 +113,7 @@
         }
       },
       "delete": {
-        "description": "",
+        "description": "Rota para exclusão de registro dos produtos por Id.",
         "parameters": [
           {
             "name": "id",
@@ -139,7 +139,7 @@
     },
     "/categorias/": {
       "get": {
-        "description": "Rota para categorias",
+        "description": "Rota de busca para todos os registros de categorias",
         "parameters": [
           {
             "name": "autenticador",
@@ -160,7 +160,7 @@
         }
       },
       "post": {
-        "description": "",
+        "description": "Rota para inclusão de uma nova categoria.",
         "parameters": [
           {
             "name": "autenticador",
@@ -183,7 +183,7 @@
     },
     "/categorias/{id}": {
       "get": {
-        "description": "",
+        "description": "Rota de busca para registro de categorias especificas por meio de Id.",
         "parameters": [
           {
             "name": "id",
@@ -207,7 +207,7 @@
         }
       },
       "patch": {
-        "description": "",
+        "description": "Rota para atualização de registro em categorias por Id.",
         "parameters": [
           {
             "name": "id",
@@ -231,7 +231,7 @@
         }
       },
       "delete": {
-        "description": "",
+        "description": "Rota para exclusão de registro das categorias por Id.",
         "parameters": [
           {
             "name": "id",

@@ -4,7 +4,7 @@ import { validacoesDeEntradas, validacoesDeValores } from "../services/validacoe
 
 class Categorias {
 	async get(req, res) {
-		// #swagger.description = 'Rota para categorias'
+		// #swagger.description = 'Rota de busca para todos os registros de categorias'
 		try {
 			const response = await CategoriasDAO.listar()
 			res.status(200).json(response)
@@ -14,15 +14,16 @@ class Categorias {
 	}
 
 	async getId(req, res) {
+		// #swagger.description = 'Rota de busca para registro de categorias especificas por meio de Id.'
 		const id = req.params.id
 
 		try {
-			if (!validacoesDeValores(id)){
+			if (!validacoesDeValores(id)) {
 				throw new Error("Id inválido, favor inserir um valor numérico.")
 			}
 			const response = await CategoriasDAO.listarPorId(id)
 
-    if(!response.length){
+			if (!response.length) {
 				throw new Error("Id não encontrado na base de dados.")
 			}
 			res.status(200).json(...response)
@@ -38,11 +39,12 @@ class Categorias {
 	}
 
 	async post(req, res) {
-    const body = req.body
+		// #swagger.description = 'Rota para inclusão de uma nova categoria.'
+		const body = req.body
 
 		try {
-    validacoesDeEntradas(body)
-			
+			validacoesDeEntradas(body)
+
 			const categoria = new CategoriasModel(body)
 			const response = await CategoriasDAO.criar(categoria)
 			res.status(200).json(response)
@@ -56,19 +58,20 @@ class Categorias {
 	}
 
 	async patch(req, res) {
-    const id = req.params.id
-    const body = req.body
+		// #swagger.description = 'Rota para atualização de registro em categorias por Id.'
+		const id = req.params.id
+		const body = req.body
 
 		try {
-    if (!validacoesDeValores(id)){
+			if (!validacoesDeValores(id)) {
 				throw new Error("Id inválido, favor inserir um valor numérico.")
 			}
 
-    validacoesDeEntradas(body)
+			validacoesDeEntradas(body)
 
 			const response = await CategoriasDAO.atualizar(body, id)
 
-			if(response.affectedRows === 0){
+			if (response.affectedRows === 0) {
 				throw new Error("Id inexistente ou nenhuma alteração encontrada na entrada.")
 			}
 			res.status(200).json(response)
@@ -83,15 +86,16 @@ class Categorias {
 	}
 
 	async delete(req, res) {
+		// #swagger.description = 'Rota para exclusão de registro das categorias por Id.'
 		const id = req.params.id
-    
+
 		try {
-			if (!validacoesDeValores(id)){
+			if (!validacoesDeValores(id)) {
 				throw new Error("Id inválido, favor inserir um valor numérico.")
 			}
 			const response = await CategoriasDAO.deletar(id)
 
-    if(!response.length){
+			if (!response.length) {
 				throw new Error("Id não encontrado na base de dados.")
 			}
 			res.status(200).json(response)
