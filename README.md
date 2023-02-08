@@ -80,64 +80,87 @@ jest: "^29.4.2",
 ### :small_blue_diamond: documentção interativa <br>
 
 Para acessar ao Swegger utlizar a segunte rota: <br>
+```
 /doc
+```
 
 ### :small_blue_diamond: Categorias <br>
 
 :dart: Get-categorias <br>
 Busca todos os registros na categoria.
+```
 /categorias
+```
 
 
 :dart: Get-categorias/id <br>
-Busca o ":id". O get que busca todos os registros na sua entidade.<br>
+Rota de busca para registro de produtos especificos por meio de Id.<br>
+```
 /categorias/:id
+```
 
 :dart: Post-categorias <br>
 Rota para inclusão de uma nova categoria.<br>
+```
 /categorias
+```
 
 :dart: Pacth-categorias <br>
 Rota para atualização de registro em categorias por Id.<br>
+```
 /categorias/id
+```
 
 :dart: Delete-categorias/id <br>
 Rota para exclusão de registro das categorias por Id.<br>
+```
 /categorias/:id
+```
 
 ### :small_blue_diamond: Produtos <br>
 
 :dart: Get-produtos <br>
 Rota de busca para todos os registros de produtos.
+```
 /produtos
+```
 
 :dart: Get-produtos/id <br>
 Rota de busca para registro de produtos especificos por meio de Id.<br>
+```
 /produtos/:id
+```
 
 :dart: Post-produtos <br>
 Rota para inclusão de um novo produto..<br>
+```
 /produtos
+```
 
 :dart: Pacth-produtos/id <br>
 Rota para atualização de um Produto.<br>
+```
 /produtos/id
+```
 
 :dart: Delete-categorias/id <br>
 Rota para exclusão de registro dos produtos por Id.<br>
+```
 /categorias/:id
+```
 
 
 MODELOS:
 Categorias:
-```
+```json
 {
     "nome": "string",
     "descricao": "string"
 }
 ```
 Produtos:
-```{
+```json
+{
     "descricao":"string",
     "valor_do_produto_no_varejo":"number",
     "valor_do_produto_no_atacado":"number",
