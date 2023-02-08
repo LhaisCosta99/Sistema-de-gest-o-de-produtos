@@ -56,6 +56,9 @@ swagger-autogen: "^2.23.0",
 ```
 swagger-ui-express: "^4.6.0"
 ```
+```
+jest: "^29.4.2",
+```
 ## :heavy_check_mark:  Requisitos  :heavy_check_mark:
 
 :small_blue_diamond: Node <br>
@@ -73,156 +76,82 @@ swagger-ui-express: "^4.6.0"
     "autenticador": "admin"
 }
 ```
-# :small_blue_diamond: Categotias <br>
 
- :dart: Post-categorias <br>
-```js
-//Cria nova categoria.
-/categorias/
-   {
-    "nome": "blusas femininas",
-    "descricao": "tamanho M"
-    }
-```
-:speech_balloon: Resposta <br>
-```js
-{
-	"Erro": "!"
-}
-```
- :dart: Get-categorias <br>
-```js
-//Busca o ":id". O get que busca todos os registros na sua entidade.
-/categorias/:id
-    {
-        "id": 3,
-        "nome": "blusas femininas",
-        "descricao": "tamanho M"
-    }
-```
-:speech_balloon: Resposta <br>
-```js
-{
-	"Erro": "Id inválido, favor inserir um valor numérico."
-}
-```
- :dart: Patch-categorias <br>
-```js
-//atualiza por":id". Rota para atualização de registro em categorias por Id.
-/categorias/:id
-    {
-    "fieldCount": 0,
-    "affectedRows": 1,
-    "insertId": 0,
-    "info": "Rows matched: 1  Changed: 0  Warnings: 0",
-    "serverStatus": 2,
-    "warningStatus": 0,
-    "changedRows": 0
-    }
-```
-:speech_balloon: Resposta <br>
-```js
-{
-	"Erro": ""
-}
-//Busca o ":id". O get que busca todos os registros na sua entidade.
-/categorias/:id
-    {
-        "id": 3,
-        "nome": "blusas femininas",
-        "descricao": "tamanho M"
-    }
-```
-:speech_balloon: Resposta <br>
-```js
-{
-	"Erro": ""
-}
-```
- :dart: Delete-categorias <br>
-```js
-//deleta por":id". Rota para exclusão de registro das categorias por Id.
-/categorias/:id
-```
-:speech_balloon: Resposta <br>
-```js
-{
-	"Erro": "Id não encontrado na base de dados."
-}
+### :small_blue_diamond: documentção interativa <br>
 
-# :small_blue_diamond:Produtos <br>
+Para acessar ao Swegger utlizar a segunte rota: <br>
+/doc
 
- :dart: Post-produtos <br>
-```js
-//Cria um novo produto.
-/produtos/
-   {
-    
-    }
-```
-:speech_balloon: Resposta <br>
-```js
-{
-	"Erro": "!"
-}
-```
- :dart: Get-produtos <br>
-```js
-//Busca o ":id". O get que busca todos os proodutos na sua entidade.
+### :small_blue_diamond: Categorias <br>
+
+:dart: Get-categorias <br>
+Busca todos os registros na categoria.
+/categorias
+
+
+:dart: Get-categorias/id <br>
+Busca o ":id". O get que busca todos os registros na sua entidade.<br>
+/categorias/:id
+
+:dart: Post-categorias <br>
+Rota para inclusão de uma nova categoria.<br>
+/categorias
+
+:dart: Pacth-categorias <br>
+Rota para atualização de registro em categorias por Id.<br>
+/categorias/id
+
+:dart: Delete-categorias/id <br>
+Rota para exclusão de registro das categorias por Id.<br>
+/categorias/:id
+
+### :small_blue_diamond: Produtos <br>
+
+:dart: Get-produtos <br>
+Rota de busca para todos os registros de produtos.
+/produtos
+
+:dart: Get-produtos/id <br>
+Rota de busca para registro de produtos especificos por meio de Id.<br>
 /produtos/:id
-    {
-        "id": 3,
-        "nome": "blusas femininas",
-        "descricao": "tamanho M"
-    }
+
+:dart: Post-produtos <br>
+Rota para inclusão de um novo produto..<br>
+/produtos
+
+:dart: Pacth-produtos/id <br>
+Rota para atualização de um Produto.<br>
+/produtos/id
+
+:dart: Delete-categorias/id <br>
+Rota para exclusão de registro dos produtos por Id.<br>
+/categorias/:id
+
+
+MODELOS:
+Categorias:
 ```
-:speech_balloon: Resposta <br>
-```js
 {
-	"Erro": "Id inválido, favor inserir um valor numérico."
+    "nome": "string",
+    "descricao": "string"
 }
 ```
- :dart: Patch-produtos <br>
-```js
-//atualiza por":id". Rota para atualização de registro de produto por Id.
-/produtos/:id
-    {
-    "fieldCount": 0,
-    "affectedRows": 1,
-    "insertId": 0,
-    "info": "Rows matched: 1  Changed: 0  Warnings: 0",
-    "serverStatus": 2,
-    "warningStatus": 0,
-    "changedRows": 0
-    }
-```
-:speech_balloon: Resposta <br>
-```js
-{
-	"Erro": ""
+Produtos:
+```{
+    "descricao":"string",
+    "valor_do_produto_no_varejo":"number",
+    "valor_do_produto_no_atacado":"number",
+    "categoria":"number"
 }
-//Busca o ":id". O get que busca todos os produtos na sua entidade.
-/produtos/:id
-    {
-         "descricao": "descricao teste";
-        "valor_do_produto_no_varejo" : "11.50";
-        "valor_do_produto_no_atacado" : "5.50";
-        "categoria": "5"
-    }
-```
-:speech_balloon: Resposta <br>
-```js
-{
-	"Erro": ""
-}
-```
- :dart: Delete-produtos <br>
-```js
-//deleta por":id". Rota para exclusão de registro dos produtos por Id.
-/produtos/:id
-```
-:speech_balloon: Resposta <br>
-```js
-{
-	
-}
+````
+
+
+
+
+
+
+
+
+
+
+
