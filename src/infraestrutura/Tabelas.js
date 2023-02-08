@@ -31,7 +31,7 @@ class Tabelas {
 		const sql = `CREATE TABLE IF NOT EXISTS categorias (
                     id int NOT NULL AUTO_INCREMENT,
                     nome varchar(50) NOT NULL,  
-                    descrição varchar(50) NOT NULL, 
+                    descricao varchar(50) NOT NULL, 
                     PRIMARY KEY(id)
                     )`
 

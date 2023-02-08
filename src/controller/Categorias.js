@@ -1,5 +1,6 @@
 import CategoriasDAO from "../DAO/CategoriasDAO.js"
-import { validacoesDeValores } from "../services/validacoesGerais.js"
+import CategoriasModel from "../models/CategoriasModel.js"
+import { validacoesDeEntradas, validacoesDeValores } from "../services/validacoesGerais.js"
 
 class Categorias {
 	async get(req, res) {
@@ -19,8 +20,13 @@ class Categorias {
 			if (!validacoesDeValores(id)){
 				throw new Error("Id inválido, favor inserir um valor numérico.")
 			}
-			const response = await CategoriasDAO.listar(id)
-			res.status(200).json(response)
+			const response = await CategoriasDAO.listarPorId(id)
+
+      if(!response.length){
+				throw new Error("Id não encontrado na base de dados.")
+			}
+			res.status(200).json(...response)
+
 		} catch (error) {
 			const statusCode = error.message === "Id inválido, favor inserir um valor numérico." ? 400 : 404
 			res.status(statusCode).json({
@@ -32,20 +38,47 @@ class Categorias {
 	}
 
 	async post(req, res) {
+    const body = req.body
+
 		try {
-			const response = await CategoriasDAO.criar(req.body)
+      validacoesDeEntradas(body)
+			
+			const categoria = new CategoriasModel(body)
+			const response = await CategoriasDAO.criar(categoria)
 			res.status(200).json(response)
 		} catch (error) {
-			res.status(400).json(error.message)
+			res.status(400).json({
+				erro: true,
+				statusCode: 400,
+				message: error.message
+			})
 		}
 	}
 
 	async patch(req, res) {
+    const id = req.params.id
+    const body = req.body
+
 		try {
-			const response = await CategoriasDAO.atualizar(req.body, req.params.id)
+      if (!validacoesDeValores(id)){
+				throw new Error("Id inválido, favor inserir um valor numérico.")
+			}
+
+      validacoesDeEntradas(body)
+
+			const response = await CategoriasDAO.atualizar(body, id)
+      
+			if(response.affectedRows === 0){
+				throw new Error("Id inexistente ou nenhuma alteração encontrada na entrada.")
+			}
 			res.status(200).json(response)
 		} catch (error) {
-			res.status(400).json(error.message)
+			const statusCode = error.message === "Id inválido, favor inserir um valor numérico." ? 400 : 404
+			res.status(statusCode).json({
+				erro: true,
+				statusCode: statusCode,
+				message: error.message
+			})
 		}
 	}
 
@@ -57,7 +90,12 @@ class Categorias {
 				throw new Error("Id inválido, favor inserir um valor numérico.")
 			}
 			const response = await CategoriasDAO.deletar(id)
+
+      if(!response.length){
+				throw new Error("Id não encontrado na base de dados.")
+			}
 			res.status(200).json(response)
+
 		} catch (error) {
 			const statusCode = error.message === "Id inválido, favor inserir um valor numérico." ? 400 : 404
 			res.status(statusCode).json({

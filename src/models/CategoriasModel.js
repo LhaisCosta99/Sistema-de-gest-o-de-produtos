@@ -1,7 +1,7 @@
 class CategoriasModel {
-	constructor(nome, descricao) {
-		this.nome = nome
-		this.descricao = descricao
+	constructor(body) {
+		this.nome = body.nome
+		this.descricao = body.descricao
 	}
 }
 
