@@ -1,13 +1,14 @@
 class Tabelas {
-    init(conexao) {
-        this.conexao = conexao
+	init(conexao) {
+		this.conexao = conexao
 
-        this.categorias()
+		this.categorias()
 
-        this.produtos()
-    }
-    produtos() {
-        const sql = `CREATE TABLE IF NOT EXISTS produtos (
+		this.produtos()
+	}
+
+	produtos() {
+		const sql = `CREATE TABLE IF NOT EXISTS produtos (
                     id int NOT NULL AUTO_INCREMENT, 
                     descrição varchar(50) NOT NULL, 
                     valor_do_produto_no_varejo DOUBLE NOT NULL,
@@ -17,30 +18,31 @@ class Tabelas {
                     FOREIGN KEY(categoria) REFERENCES categorias(id)
                     )`
 
-        this.conexao.query(sql, erro => {
-            if (erro) {
-                console.log(erro)
-            } else {
-                console.log('Tabela Produtos criada com sucesso')
-            }
-        })
-    }
-    categorias() {
-        const sql = `CREATE TABLE IF NOT EXISTS categorias (
+		this.conexao.query(sql, (erro) => {
+			if (erro) {
+				console.log(erro)
+			} else {
+				console.log("Tabela Produtos criada com sucesso")
+			}
+		})
+	}
+
+	categorias() {
+		const sql = `CREATE TABLE IF NOT EXISTS categorias (
                     id int NOT NULL AUTO_INCREMENT,
                     nome varchar(50) NOT NULL,  
                     descrição varchar(50) NOT NULL, 
                     PRIMARY KEY(id)
                     )`
 
-        this.conexao.query(sql, erro => {
-            if (erro) {
-                console.log(erro)
-            } else {
-                console.log('Tabela Categorias criada com sucesso')
-            }
-        })
-    }
+		this.conexao.query(sql, (erro) => {
+			if (erro) {
+				console.log(erro)
+			} else {
+				console.log("Tabela Categorias criada com sucesso")
+			}
+		})
+	}
 }
 
-export default new Tabelas;
+export default new Tabelas()

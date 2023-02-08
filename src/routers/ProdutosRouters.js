@@ -1,5 +1,5 @@
-import { Router } from "express";
-import Produtos from "../controller/Produtos.js";
+import { Router } from "express"
+import Produtos from "../controller/Produtos.js"
 
 const produtosRouter = Router()
 
@@ -9,4 +9,4 @@ produtosRouter.post("/", Produtos.post)
 produtosRouter.patch("/:id", Produtos.patch)
 produtosRouter.delete("/:id", Produtos.delete)
 
-export default produtosRouter;
+export default produtosRouter
