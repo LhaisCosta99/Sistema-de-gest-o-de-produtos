@@ -5,11 +5,11 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js",
     "swagger-autogen": "node swagger.js",
     "lint": "./node_modules/.bin/eslint . --fix",
-    "dev": "npm run swagger-autogen && nodemon ./src/app.js",
-    "start": "npm run swagger-autogen && node ./src/app.js"
+    "dev": "npm test && npm run swagger-autogen && nodemon ./src/app.js",
+    "start": "npm test && npm run swagger-autogen && node ./src/app.js"
   },
   "repository": {
     "url": "git+https://github.com/LhaisCosta99/Sistema-de-gestao-de-produtos.git"
@@ -34,6 +34,7 @@
     "eslint-config-airbnb-base": "^15.0.0",
     "eslint-plugin-import": "^2.27.5",
     "install": "^0.13.0",
+    "jest": "^29.4.2",
     "nodemon": "^2.0.20"
   }
 }

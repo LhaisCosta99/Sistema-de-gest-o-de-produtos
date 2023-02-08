@@ -1,4 +1,4 @@
-function validacoesDeTextos(str){
+export function validacoesDeTextos(str){
 	const texto = str.trim()
 	return texto.length >= 3
 }
@@ -31,4 +31,5 @@ export function validacoesDeEntradas(objeto){
 			}
 		}
 	})
+	return true
 }
