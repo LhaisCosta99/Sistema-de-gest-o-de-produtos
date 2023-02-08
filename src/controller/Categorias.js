@@ -22,7 +22,7 @@ class Categorias {
 			}
 			const response = await CategoriasDAO.listarPorId(id)
 
-      if(!response.length){
+    if(!response.length){
 				throw new Error("Id não encontrado na base de dados.")
 			}
 			res.status(200).json(...response)
@@ -41,7 +41,7 @@ class Categorias {
     const body = req.body
 
 		try {
-      validacoesDeEntradas(body)
+    validacoesDeEntradas(body)
 			
 			const categoria = new CategoriasModel(body)
 			const response = await CategoriasDAO.criar(categoria)
@@ -60,14 +60,14 @@ class Categorias {
     const body = req.body
 
 		try {
-      if (!validacoesDeValores(id)){
+    if (!validacoesDeValores(id)){
 				throw new Error("Id inválido, favor inserir um valor numérico.")
 			}
 
-      validacoesDeEntradas(body)
+    validacoesDeEntradas(body)
 
 			const response = await CategoriasDAO.atualizar(body, id)
-      
+
 			if(response.affectedRows === 0){
 				throw new Error("Id inexistente ou nenhuma alteração encontrada na entrada.")
 			}
@@ -91,7 +91,7 @@ class Categorias {
 			}
 			const response = await CategoriasDAO.deletar(id)
 
-      if(!response.length){
+    if(!response.length){
 				throw new Error("Id não encontrado na base de dados.")
 			}
 			res.status(200).json(response)

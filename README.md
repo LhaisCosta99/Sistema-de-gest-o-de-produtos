@@ -59,9 +59,9 @@ swagger-ui-express: "^4.6.0"
 ## :traffic_light: Rotas da aplicação :traffic_light:
 :small_blue_diamond: Os testes da API foram feitos via Postman. <br>
 
-:small_blue_diamond: categotias <br>
+# :small_blue_diamond: categotias <br>
 
-# :dart: Post-categorias <br>
+ :dart: Post-categorias <br>
 ```js
 //Cria nova categoria.
 /categorias/
@@ -76,7 +76,7 @@ swagger-ui-express: "^4.6.0"
 	"Erro": "!"
 }
 ```
-# :dart: Get-categorias <br>
+ :dart: Get-categorias <br>
 ```js
 //Busca o ":id". O get que busca todos os registros na sua entidade.
 /categorias/:id
@@ -92,4 +92,33 @@ swagger-ui-express: "^4.6.0"
 	"Erro": ""
 }
 ```
+ :dart: Patch-categorias <br>
+```js
+//Busca o ":id". O get que busca todos os registros na sua entidade.
+/categorias/:id
+    {
+        "id": 3,
+        "nome": "blusas femininas",
+        "descricao": "tamanho M"
+    }
+```
+:speech_balloon: Resposta <br>
+```js
 
+:dart: Delete-categorias <br>
+```js
+//Busca o ":id "
+/categorias/:id
+    {
+        "id": 3,
+        "nome": "blusas femininas",
+        "descricao": "tamanho M"
+    }
+```
+:speech_balloon: Resposta <br>
+```js
+{
+	
+   
+}
+```
