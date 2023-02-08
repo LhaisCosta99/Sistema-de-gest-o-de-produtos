@@ -41,6 +41,12 @@ class Produtos {
 	async post(req, res) {
 		/*
 		#swagger.description = 'Rota para inclusão de um novo produto.'
+
+		#swagger.parameters['Produto'] = {
+			description: 'Objeto para registro de produto.',
+			required: true,
+			in: 'body',
+		}
 		*/
 		const body = req.body
 
@@ -60,7 +66,15 @@ class Produtos {
 	}
 
 	async patch(req, res) {
-		// #swagger.description = 'Rota para atualização de registro em produtos por Id.'
+		/*
+		#swagger.description = 'Rota para atualização de um Produto.'
+
+		#swagger.parameters['Produto'] = {
+			description: 'Objeto para atualização de um Produto.',
+			required: true,
+			in: 'body',
+		}
+		*/
 		const id = req.params.id
 		const body = req.body
 		try {
