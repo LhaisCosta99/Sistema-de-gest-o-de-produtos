@@ -39,7 +39,15 @@ class Categorias {
 	}
 
 	async post(req, res) {
-		// #swagger.description = 'Rota para inclusão de uma nova categoria.'
+		/*
+		#swagger.description = 'Rota para inclusão de uma nova categoria.'
+
+		#swagger.parameters['Categoria'] = {
+			description: 'Objeto para registro de Categoria.',
+			required: true,
+			in: 'body',
+		}
+		*/
 		const body = req.body
 
 		try {
@@ -58,7 +66,15 @@ class Categorias {
 	}
 
 	async patch(req, res) {
-		// #swagger.description = 'Rota para atualização de registro em categorias por Id.'
+		/*
+		#swagger.description = 'Rota para atualização de registro em categorias por Id.'
+
+		#swagger.parameters['Categoria'] = {
+			description: 'Objeto para atualização de Categoria.',
+			required: true,
+			in: 'body',
+		}
+		*/
 		const id = req.params.id
 		const body = req.body
 

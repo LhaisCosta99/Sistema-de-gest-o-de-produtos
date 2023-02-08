@@ -39,7 +39,9 @@ class Produtos {
 	}
 
 	async post(req, res) {
-		// #swagger.description = 'Rota para inclusão de um novo produto.'
+		/*
+		#swagger.description = 'Rota para inclusão de um novo produto.'
+		*/
 		const body = req.body
 
 		try {

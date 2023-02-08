@@ -21,8 +21,8 @@ app.use(cors())
 app.use(express.json())
 app.use("/doc", swaggerUi.serve, swaggerUi.setup(swaggerFile))
 app.use(autenticador)
-app.use("/produtos", produtosRouter)
 app.use("/categorias", categoriasRouter)
+app.use("/produtos", produtosRouter)
 
 conexao.connect((erro) => {
 	if (erro) {

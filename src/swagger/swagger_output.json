@@ -19,6 +19,144 @@
     "application/json"
   ],
   "paths": {
+    "/categorias/": {
+      "get": {
+        "description": "Rota de busca para todos os registros de categorias",
+        "parameters": [
+          {
+            "name": "autenticador",
+            "in": "header",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        }
+      },
+      "post": {
+        "description": "Rota para inclusão de uma nova categoria.",
+        "parameters": [
+          {
+            "name": "autenticador",
+            "in": "header",
+            "type": "string"
+          },
+          {
+            "name": "Categoria",
+            "description": "Objeto para registro de Categoria.",
+            "required": true,
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {}
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        }
+      }
+    },
+    "/categorias/{id}": {
+      "get": {
+        "description": "Rota de busca para registro de categorias especificas por meio de Id.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "autenticador",
+            "in": "header",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        }
+      },
+      "patch": {
+        "description": "Rota para atualização de registro em categorias por Id.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "autenticador",
+            "in": "header",
+            "type": "string"
+          },
+          {
+            "name": "Categoria",
+            "description": "Objeto para atualização de Categoria.",
+            "required": true,
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {}
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        }
+      },
+      "delete": {
+        "description": "Rota para exclusão de registro das categorias por Id.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "autenticador",
+            "in": "header",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        }
+      }
+    },
     "/produtos/": {
       "get": {
         "description": "Rota de busca para todos os registros de produtos",
@@ -136,122 +274,40 @@
           }
         }
       }
-    },
-    "/categorias/": {
-      "get": {
-        "description": "Rota de busca para todos os registros de categorias",
-        "parameters": [
-          {
-            "name": "autenticador",
-            "in": "header",
-            "type": "string"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK"
-          },
-          "400": {
-            "description": "Bad Request"
-          },
-          "403": {
-            "description": "Forbidden"
-          }
-        }
-      },
-      "post": {
-        "description": "Rota para inclusão de uma nova categoria.",
-        "parameters": [
-          {
-            "name": "autenticador",
-            "in": "header",
-            "type": "string"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK"
-          },
-          "400": {
-            "description": "Bad Request"
-          },
-          "403": {
-            "description": "Forbidden"
-          }
+    }
+  },
+  "definitions": {
+    "Produto": {
+      "type": "object",
+      "properties": {
+        "descricao": {
+          "type": "string",
+          "example": "descricao teste"
+        },
+        "valor_do_produto_no_varejo": {
+          "type": "number",
+          "example": 10.98
+        },
+        "valor_do_produto_no_atacado": {
+          "type": "number",
+          "example": 9.98
+        },
+        "categoria": {
+          "type": "number",
+          "example": 1
         }
       }
     },
-    "/categorias/{id}": {
-      "get": {
-        "description": "Rota de busca para registro de categorias especificas por meio de Id.",
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "name": "autenticador",
-            "in": "header",
-            "type": "string"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK"
-          },
-          "403": {
-            "description": "Forbidden"
-          }
-        }
-      },
-      "patch": {
-        "description": "Rota para atualização de registro em categorias por Id.",
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "name": "autenticador",
-            "in": "header",
-            "type": "string"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK"
-          },
-          "403": {
-            "description": "Forbidden"
-          }
-        }
-      },
-      "delete": {
-        "description": "Rota para exclusão de registro das categorias por Id.",
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "name": "autenticador",
-            "in": "header",
-            "type": "string"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK"
-          },
-          "403": {
-            "description": "Forbidden"
-          }
+    "Categoria": {
+      "type": "object",
+      "properties": {
+        "nome": {
+          "type": "string",
+          "example": "nome teste"
+        },
+        "descricao": {
+          "type": "string",
+          "example": "descricao teste"
         }
       }
     }

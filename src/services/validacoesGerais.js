@@ -1,5 +1,5 @@
-function validacoesDeTextos(string){
-	const texto = string.trim()
+function validacoesDeTextos(str){
+	const texto = str.trim()
 	return texto.length >= 3
 }
 
@@ -10,7 +10,7 @@ export function validacoesDeValores(num){
 
 export function validacoesDeEntradas(objeto){
 	const chavesEntrada = Object.keys(objeto)
-	const textos = ["nome", "categoria", "descricao"]
+	const textos = ["nome", "descricao"]
 	const valores = ["valor_do_produto_no_varejo", "valor_do_produto_no_atacado", "categoria"]
 	const chavesValidas = [...textos, ...valores]
 

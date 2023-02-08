@@ -1,6 +1,6 @@
 import swaggerAutogen from "swagger-autogen"
-
-swaggerAutogen()
+import { Produto, Categoria } from "./src/swagger/exemples.js"
+//swaggerAutogen()
 
 const outputFile = "./src/swagger/swagger_output.json"
 const endpointsFiles = ["./src/app.js"]
@@ -18,6 +18,8 @@ const doc = {
 	securityDefinitions: {
 	},
 	definitions: {
+		Produto,
+		Categoria,
 	},
 }
 

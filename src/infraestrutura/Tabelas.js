@@ -10,7 +10,7 @@ class Tabelas {
 	produtos() {
 		const sql = `CREATE TABLE IF NOT EXISTS produtos (
                     id int NOT NULL AUTO_INCREMENT, 
-                    descrição varchar(50) NOT NULL, 
+                    descricao varchar(50) NOT NULL, 
                     valor_do_produto_no_varejo DOUBLE NOT NULL,
                     valor_do_produto_no_atacado DOUBLE NOT NULL, 
                     categoria INT,
