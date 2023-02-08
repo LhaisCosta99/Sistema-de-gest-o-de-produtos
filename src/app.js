@@ -19,8 +19,8 @@ const port = process.env.PORT
 
 app.use(cors())
 app.use(express.json())
-app.use(autenticador)
 app.use("/doc", swaggerUi.serve, swaggerUi.setup(swaggerFile))
+app.use(autenticador)
 app.use("/produtos", produtosRouter)
 app.use("/categorias", categoriasRouter)
 
