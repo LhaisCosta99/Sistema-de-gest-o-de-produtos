@@ -1,4 +1,5 @@
 import ProdutosDAO from "../DAO/ProdutosDAO.js"
+import { validacoesDeValores } from "../services/validacoesGerais.js"
 
 class Produtos {
 	async get(req, res) {
@@ -11,8 +12,13 @@ class Produtos {
 	}
 
 	async getId(req, res) {
+		const id = req.params.id
+
 		try {
-			const response = await ProdutosDAO.listar(req.params.id)
+			if (!validacoesDeValores(id)) {
+				throw new Error("Id inválido, favor inserir um valor numérico.")
+			}
+			const response = await ProdutosDAO.listar(id)
 			res.status(200).json(response)
 		} catch (error) {
 			res.status(400).json(error.message)
@@ -24,7 +30,12 @@ class Produtos {
 			const response = await ProdutosDAO.criar(req.body)
 			res.status(200).json(response)
 		} catch (error) {
-			res.status(400).json(error.message)
+			const statusCode = error.message === "Id inválido, favor inserir um valor numérico." ? 400 : 404
+			res.status(statusCode).json({
+				erro: true,
+				statusCode: statusCode,
+				message: error.message
+			})		
 		}
 	}
 
@@ -38,11 +49,21 @@ class Produtos {
 	}
 
 	async delete(req, res) {
+		const id = req.params.id
+
 		try {
-			const response = await ProdutosDAO.deletar(req.params.id)
+			if (!validacoesDeValores(id)) {
+				throw new Error("Id inválido, favor inserir um valor numérico.")
+			}
+			const response = await ProdutosDAO.deletar(id)
 			res.status(200).json(response)
 		} catch (error) {
-			res.status(400).json(error.message)
+			const statusCode = error.message === "Id inválido, favor inserir um valor numérico." ? 400 : 404
+			res.status(statusCode).json({
+				erro: true,
+				statusCode: statusCode,
+				message: error.message
+			})
 		}
 	}
 }
